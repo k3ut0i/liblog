@@ -1,0 +1,2 @@
+* C Logging Library
+  A simple logging library to use in my c projects.
