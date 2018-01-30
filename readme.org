@@ -1,2 +1,7 @@
 * C Logging Library
   A simple logging library to use in my c projects.
+
+
+** TODO design problems
+1. How does the shared state work when my program forks after initializing the library?
+2. Care needed to be taken when designing a re-entrant library, and can a logging library be re-entrant?   
