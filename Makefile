@@ -24,7 +24,7 @@ liblog.a : $(OBJS)
 
 clean_tmp:
 	rm -f $(OBJS) $(DEPS) $(TEST_OBJS) $(TEST_DEPS)
-clean:
+clean: clean_tmp
 	rm -f liblog.a $(TEST_EXES)
 
 TEST_EXES = simple_level_test

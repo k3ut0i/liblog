@@ -4,10 +4,29 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+enum log_option{
+  LO_COLOR,
+  LO_TIME,
+  LO_FILE,
+};
+
+enum log_level{
+  LL_ALL,
+  LL_TRACE,
+  LL_DEBUG,
+  LL_INFO,
+  LL_WARN,
+  LL_ERROR,
+  LL_FATAL,
+  LL_OFF
+};
+
 void log_initialize();
 void log_clean_up();
 
-enum log_level{LL_DEBUG, LL_INFO, LL_FATAL};
+void log_set_option(enum log_option, bool);
+bool log_set_color_support(bool);
+
 bool log_set_level(enum log_level);
 enum log_level log_get_level();
 
