@@ -10,7 +10,7 @@ TEST_DEPS = $(TEST_SRCS:.c=.d)
 TEST_OBJS = $(TEST_SRCS:.c=.o)
 -include $(TEST_DEPS)
 
-
+TEST_EXES = level_test output_test
 .PHONY: top clean_tmp clean
 
 # Clean previous, build new archive, clean up temp files.
@@ -27,7 +27,8 @@ clean_tmp:
 clean: clean_tmp
 	rm -f liblog.a $(TEST_EXES)
 
-TEST_EXES = simple_level_test
+output_test: liblog.a t/output_test.o
+	$(CC) $(CFLAGS) $^ -o $@ -L./ -llog
 
-simple_level_test: liblog.a $(TEST_OBJS)
+level_test: liblog.a t/level_test.o
 	$(CC) $(CFLAGS) $^ -o $@ -L./ -llog
